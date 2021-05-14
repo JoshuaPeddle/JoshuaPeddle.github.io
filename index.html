@@ -22,16 +22,12 @@
 
         html {
             height: 100%;
-            padding-inline: 5px;
-
-
             margin: auto;
             text-align: center;
 
         }
 
         body {
-            padding-inline: 0;
             height: 100%;
             display: inline;
             margin: auto;
@@ -42,16 +38,16 @@
 
 
         h1 {
-            padding-inline: 0;
             text-align: center;
             background-color: #292929;
             color: white;
         }
 
         p {
+            padding-left: 15px;
+            padding-right: 15px;
             font-size: 110%;
             padding-top: 50px;
-            padding-inline: 25px;
             text-align: center;
             color: rosybrown;
 
@@ -60,7 +56,6 @@
         p:last-of-type {
             font-size: 110%;
             padding-top: 50px;
-            padding-inline: 25px;
             text-align: center;
             color: rosybrown;
             padding-bottom: 150px;
@@ -102,11 +97,13 @@
     </style>
 </head>
 
+<body>
+
 
 <h1> Written Form </h1>
 
 
-<body>
+
 
 
 
@@ -185,30 +182,30 @@
 
 
 
-
+        <footer>
+            <ul class="images">
+                <li><a href="index.html"><img src="img/B.png" alt="B" class="listImage" height="36px" width="100px"/></a></li>
+                <li><a href="STLviewer.html"><img src="img/D.png" alt="D" class="listImage" height="36px" width="100px"/></a></li>
+                <li><a href="HTMLtest.html"><img src="img/G.png" alt="G" class="listImage" height="36px" width="100px"/></a></li>
+                <li><a href="STLviewerNew.html"><img src="img/P.png" alt="P" class="listImage" height="36px" width="100px"/></a></li>
+                <li><a href="#"><img src="img/Y.png" alt="Y" class="listImage"  height="36px" width="100px"/></a></li>
+            </ul>
+            <span id="timeNow"></span>
+            <script>
+                document.getElementById("timeNow").innerHTML = new Date();
+                var showTime = function () {
+                    let now = new Date();
+                    document.getElementById("timeNow").innerHTML = now;
+                };
+                var timer = setInterval(showTime, 1000);
+                 //clearInterval(timer);
+            </script>
+        
+        </footer>
 </body>
 
 
 
-<footer>
-    <ul class="images">
-        <li><a href="index.html"><img src="img/B.png" class="listImage" /></a></li>
-        <li><a href="STLviewer.html"><img src="img/D.png" class="listImage" /></a></li>
-        <li><a href="HTMLtest.html"><img src="img/G.png" class="listImage" /></a></li>
-        <li><a href="STLviewerNew.html"><img src="img/P.png" class="listImage" /></a></li>
-        <li><a href="#"><img src="img/Y.png" class="listImage" /></a></li>
-    </ul>
-    <span id="timeNow"></span>
-    <script>
-        document.getElementById("timeNow").innerHTML = new Date();
-        var showTime = function () {
-            let now = new Date();
-            document.getElementById("timeNow").innerHTML = now;
-        };
-        var timer = setInterval(showTime, 1000);
-         //clearInterval(timer);
-    </script>
 
-</footer>
 
 </html>
