@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>VSCode Test</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html {
+            padding-inline: 5px;
+
+            
+            margin: auto;
+            text-align: center;
+            height: 100%;
+
+        }
+
+        body {
+
+            height: 90%;
+
+
+            margin: auto;
+            text-align: center;
+            background-color: #1f1f20;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #292929;
+            color: white;
+        }
+
+
+        footer {
+            display: inline;
+            height: 10%;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background-color: #292929;
+            color: rosybrown;
+            font-size: 90%;
+        }
+        ul.images li {
+            display: inline-flex;
+            padding: 5px;
+            padding-top: 10px;
+        }
+
+        .listImage {
+            width: 100px;
+        }
+
+        @media only screen and (max-width: 583px) {
+            .listImage {
+                width: 75px;
+            }
+        }
+        @media only screen and (max-width: 463px) {
+            .listImage {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+
+
+<h1> VSCode Test! </h1>
+
+
+
+<body>
+
+
+        <!--<h1>viewstl STL viewer</h1>-->
+    <div id="stl_cont" style="width:100%;height:90%;margin:100 auto;"></div>
+    <script src="/Stl/stl_viewer.min.js"></script>
+    <script>
+        var stl_viewer = new StlViewer(
+            document.getElementById("stl_cont"), {
+
+            auto_resize:true,
+            bgcolor: "#20FAAC",
+            models: [{
+                filename: "AirplainMain.stl",
+                color: "#ADD8E6",
+                rotationx: -1.32,
+                rotationy: 0,
+                rotationz: -.3,
+                y: .1
+            }
+                /*{filename:"LiftingBody.stl", color:"#ADD8E6",   rotationx:-.5,rotationy:.2,rotationz:.3},*/
+                /*{filename:"Case.stl", color:"#ADD8E6",rotationx:-.5,rotationy:.2,rotationz:.3,y:.1}*/
+            ]
+        }
+        );
+    </script>
+
+
+</body>
+
+
+<footer>
+    <ul class="images">
+        <li><a href="index.html"><img src="img/B.png" class="listImage" /></a></li>
+        <li><a href="STLviewer.html"><img src="img/D.png" class="listImage" /></a></li>
+        <li><a href="HTMLtest.html"><img src="img/G.png" class="listImage" /></a></li>
+        <li><a href="STLviewerNew.html"><img src="img/P.png" class="listImage" /></a></li>
+        <li><a href="#"><img src="img/Y.png" class="listImage" /></a></li>
+    </ul>
+    <span id="timeNow"></span>
+    <script>
+        document.getElementById("timeNow").innerHTML = new Date();
+        var showTime = function () {
+            let now = new Date();
+            document.getElementById("timeNow").innerHTML = now;
+        };
+        var timer = setInterval(showTime, 1000);
+         //clearInterval(timer);
+    </script>
+
+</footer>
+
+</html>
