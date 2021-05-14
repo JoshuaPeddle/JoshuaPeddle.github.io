@@ -1,2 +1,2 @@
 # JoshuaPeddle.github.io
-[https://www.JoshuaPeddle.github.io](JoshuaPeddle.github.io)
+[https://joshuapeddle.github.io/](JoshuaPeddle.github.io)
