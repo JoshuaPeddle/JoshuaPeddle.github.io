@@ -1,18 +1,70 @@
 *{
     border-width: 2px;
-    border-color: red;
-    border-style: solid;
+  
+    border-style: ridge;
+    border-color: bisque;
+    background-color: wheat;
+
 }
 
+
 body{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+   
+
+}
+
+
+#Sidebar{
+    justify-self: left;
+    background-color: beige;
+    flex-grow: -1;
+}
+
+#Content{
     height: 90vh;
+    flex-grow: 4;
     display: flex;
     flex-direction: column;
-    background-color: wheat;
+    background-color: burlywood;
     justify-content:space-between;
     align-items: center;
 }   
 
-#Bottom{
-    background-color: aqua;
+#text{
+    border-style: hidden;
+    background-color: inherit;
 }
+
+
+#Sidebar:hover{
+    background-color: aliceblue;
+    visibility: hidden;
+}
+#Bottom{
+    border-style: hidden;
+}
+
+
+.background--custom {
+    background: linear-gradient(90deg, #a4baf5, #c8e74d, #f5a2a1);
+    background-size: 300% 300%;
+    animation: gradient 4s alternate infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 100%;
+    }
+  }
