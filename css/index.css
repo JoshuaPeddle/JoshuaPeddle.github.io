@@ -1,40 +1,25 @@
 * {
     border-width: 2px;
-
     border-style: hidden;
     /*border-color: black;*/
-
-
-
 }
 
-
 #Body {
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-
-
 }
-
-
-
-
 
 #Content {
     height: 95vh;
     flex-grow: 4;
     display: flex;
     flex-direction: column;
-
     justify-content: space-between;
     align-items: center;
     margin: 2%;
 }
-
-
 
 #text{
     align-self: flex-start;
