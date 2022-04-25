@@ -45,15 +45,15 @@
 }
 
 .background--custom {
-    background: linear-gradient(45deg, #001b65ce, #027258a8,#012382d3);
+    background: linear-gradient(10deg, #02664fa8, #001b65ce, #02664fa8);
     background-size: 300% 300%;
-    animation: gradient 40s alternate infinite;
+    animation: gradient 10s alternate infinite;
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    opacity: 90%;
+    opacity: 95%;
 }
 
 @keyframes gradient {
