@@ -1,0 +1,43 @@
+* {
+    margin: 0%;
+
+}
+
+
+
+#lcsVideo {
+    position: relative;
+    align-self: center;
+}
+
+#Content {
+    height: 95vh;
+    flex-grow: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 5%;
+
+}
+
+.background--custom {
+    background: linear-gradient(1deg, #000907a8, #000e34ce, #000303a8);
+    background-size: 300% 300%;
+    animation: gradient 20s alternate infinite;
+    position: sticky;
+    overflow-y: scroll;
+    opacity: 95%;
+    height: 100vh;
+
+}
+
+@keyframes gradient2 {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 100%;
+    }
+}

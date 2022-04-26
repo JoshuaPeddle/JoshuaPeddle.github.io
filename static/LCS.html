@@ -7,7 +7,7 @@
     <title> Longest Common Subsequence</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/posts.css" />
     <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
         </script>
@@ -15,28 +15,44 @@
 </head>
 
 <body>
-
     <div id="Body" class="background--custom">
-        $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
-        <div id="Overview"></div>
 
-        <p>
-            What is the Longest Common Subsequence problem? Wikipedia says "The Longest common subsequence problem is
-            the problem of finding the longest subsequence common to all subsequence in a set of sequences (often just
-            two sequences)."
-            Focusing on the two sequence problem, consider the following example. Given two strings, GATCATC and
-            CTACGTC, the longest common subsequence would be ACTC. This example isn't too hard to solve by inspection
-            but with longer strings
-            solving through inspection is not possible.
+        <div id="Content">
+            <div id="Title">
+                <h1 style="text-align: center;"> Longest Common Subsequence </h1>
+                <br>
+            </div>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;What is the Longest Common Subsequence problem? Wikipedia defines "The Longest
+                common subsequence problem is
+                the problem of finding the longest subsequence common to all subsequence in a set of sequences
+                (often justtwo sequences)."
+                Focusing on the two sequence problem, consider the following example. Given two strings, GATCATC and
+                CTACGTC, the longest common subsequence would be ACTC. This example isn't too hard to solve by
+                inspection but with longer strings solving through inspection is not feasible.
+            </p>
             <br>
-            One potential solution to the problem uses dynamic programming. I'm planning on writing specifically about
-            dynamic programming, for now check out Wikipedia's entry about it <a
-                href="https://en.wikipedia.org/wiki/Dynamic_programming"> Here </a>
-        </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;One potential way to solve these subset of problems is to use dynamic
+                programming. I'm planning on writing specifically about
+                dynamic programming, for now check out Wikipedia's entry about it
+                <a href="https://en.wikipedia.org/wiki/Dynamic_programming"> Here. </a>
+            </p>
 
+            $$\forall j,1\le j \le |A| \quad A(j,0)=0$$
+
+            $$\forall i,2\le i \le |B| \quad A(i,0)=0$$
+
+            $$ A(i,j) = \Bigg\{ {\substack{ 1 + A(i-1,j-1) \quad \quad if A_j=B_i \\ \\ max( A(i-1,j), A(i,j-1))
+            \quad else }} $$
+
+
+            <video id="lcsVideo" width="320" height="240" controls>
+                <source src="movie.mp4" />
+            </video>
+        </div>
     </div>
 </body>
 
 </html>
 
-<!--  When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$  -->
