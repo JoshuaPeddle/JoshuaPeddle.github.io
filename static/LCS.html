@@ -27,8 +27,8 @@
                 common subsequence problem is
                 the problem of finding the longest subsequence common to all subsequence in a set of sequences
                 (often justtwo sequences)."
-                Focusing on the two sequence problem, consider the following example. Given two strings, GATCATC and
-                CTACGTC, the longest common subsequence would be ACTC. This example isn't too hard to solve by
+                Focusing on the two sequence problem, consider the following example. Given two strings, x = GATCATC and
+                y = CTACGTC, the longest common subsequence would be ACTC. This example isn't too hard to solve by
                 inspection but with longer strings solving through inspection is not feasible.
             </p>
             <br>
@@ -38,21 +38,47 @@
                 dynamic programming, for now check out Wikipedia's entry about it
                 <a href="https://en.wikipedia.org/wiki/Dynamic_programming"> Here. </a>
             </p>
+            <br>
+            <p> &nbsp;&nbsp;&nbsp;&nbsp;Start with an empty array as shown below, this will hold intermediate values
+                while calculating the
+                solution.
+            </p>
 
-            $$\forall j,1\le j \le |A| \quad A(j,0)=0$$
+            <br>
 
-            $$\forall i,2\le i \le |B| \quad A(i,0)=0$$
+            <img src="emptyArray.png" width="95%" alt="Empty Array">
+            <br>
+            <p> &nbsp;&nbsp;&nbsp;&nbsp;Initialize the array as such. We are trying to maximize the number in our array
+                so we initialize the
+                array with 0's.
+            </p>
+            <br>
+            <p> &nbsp;&nbsp;&nbsp;&nbsp;A(i,j) contains the longest subsequence including the first i characters of
+                string x and the first j characters of string y
+            </p>
 
-            $$ A(i,j) = \Bigg\{ {\substack{ 1 + A(i-1,j-1) \quad \quad if A_j=B_i \\ \\ max( A(i-1,j), A(i,j-1))
+            $$\forall j,1\le j \le |x| \quad A(0,j)=0$$
+
+            $$\forall i,2\le i \le |y| \quad A(i,0)=0$$
+
+            <img src="InitializedArray.png" width="95%" alt="Initialized Array">
+
+            $$ A(i,j) = \Bigg\{ {\substack{ 1 + A(i-1,j-1) \quad \quad if: \ x_i=y_j \\ \\ max( A(i-1,j), A(i,j-1))
             \quad else }} $$
 
-
-            <video id="lcsVideo" width="320" height="240" controls>
-                <source src="movie.mp4" />
+            <video id="lcsVideo" width="95%" controls>
+                <source src="FullAnim.mp4" type="video/webm" />
             </video>
+            <br>
+
+            <p> &nbsp;&nbsp;&nbsp;&nbsp;A(i,j) contains the longest subsequence including the first i characters of
+                string x and the first j characters of string y
+            </p>
+
+            <br>
+            
         </div>
     </div>
 </body>
 
 </html>
-
