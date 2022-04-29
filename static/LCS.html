@@ -44,10 +44,10 @@
                 while calculating the
                 solution.
             </p>
-
+            
             <br>
 
-            <img src="emptyArray.png"  alt="Empty Array" class="InstructionImg">
+            <img src="resources/emptyArray.png"  alt="Empty Array" class="InstructionImg">
             <br>
 
             <p class="paragraph"> &nbsp;&nbsp;&nbsp;&nbsp;A(i,j) contains the longest subsequence including the first i characters of
@@ -65,13 +65,13 @@
 
             $$\forall i,2\le i \le |y| \quad A(i,0)=0$$
 
-            <img src="InitializedArray.png"  alt="Initialized Array" class="InstructionImg">
+            <img src="resources/InitializedArray.png"  alt="Initialized Array" class="InstructionImg">
 
             $$ A(i,j) = \Bigg\{ {\substack{ 1 + A(i-1,j-1) \quad \quad if: \ x_i=y_j \\ \\ max( A(i-1,j), A(i,j-1))
             \quad else }} $$
 
             <video id="lcsVideo"   class="InstructionVideo" controls muted playsinline>
-                <source src="FullAnim.mp4" type="video/mp4" />
+                <source src="resources/FullAnim.mp4" type="video/mp4" />
             </video>
             <br>
 
