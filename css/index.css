@@ -2,8 +2,10 @@
     border-width: 2px;
     border-style: hidden;
     margin: 0%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     /*border-color: black;*/
 }
+
 
 #Body {
     display: flex;
@@ -13,24 +15,37 @@
 }
 
 #Content {
-    height: 95vh;
+    height: 75vh;
     flex-grow: 4;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin: 2%;
 }
-
+/* Cool dark blue text blurbs */
 #text{
-    align-self: flex-start;
-    background-color: #6969759f;
-    opacity: 70%;
+
+    background-color: #42427a9f;
+    opacity: 90%;
+    width: 50vw;
+    border-style:  solid;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
 }
 
-#Bottom {
-    border-style: hidden;
+/* Devices smaller than 600 horizontal pixels*/
+@media only screen and (max-width: 600px) {
+    #text{
+        width: 85vw;
+    }
+    #Title{
+        margin-top: 15vh;
+    }
+    
 }
+
 
 .paragraph {
     font-size: medium;
@@ -45,16 +60,19 @@
     list-style-type: none;
 }
 
+
 .background--custom {
-    background: linear-gradient(10deg, #02664fa8, #001b65ce, #02664fa8);
-    background-size: 300% 300%;
-    animation: gradient 20s alternate infinite;
+    /*background: linear-gradient(10deg, #02664fa8, #001b65ce, #02664fa8);*/
+    background: linear-gradient(45deg,  #001b65ce ,#000e34ce);
+    background-size: 200% 200%;
+    animation: gradient 40s alternate infinite;
     position: sticky;
+    overflow-y: scroll;
     top: 0;
     left: 0;
+    opacity: 100%;
     height: 100vh;
- 
-    opacity: 95%;
+    transform: translateZ(0);
 }
 
 @keyframes gradient {
@@ -65,4 +83,24 @@
     100% {
         background-position: 100%;
     }
+}
+
+#Bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 85vw;
+    align-items: center;
+}
+
+.BottomLink{
+    white-space: nowrap;
+    text-decoration: none;
+    background-color: #10101e9f;
+    opacity: 90%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    color: aliceblue;
+    
 }
