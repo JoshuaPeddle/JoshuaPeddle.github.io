@@ -7,7 +7,7 @@
     <title> Graphs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/posts.css" />
     <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
         </script>
@@ -15,22 +15,69 @@
 
 <body>
     <div id="Body" class="background--custom">
-        $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
-        <div id="Overview"></div>
 
-        <div id="BasicDefinitions"></div>
+        <div id="Content">
+            <div id="Title">
+                <h1 style="text-align: center;"> Overview of Graphs </h1>
+                <br><br><br>
+            </div>
 
-        <div id="Undirected"></div>
+            <!-- $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$-->
+            <div id="Overview" class="section"></div>
 
-        <div id="Directed"></div>
+            <div id="BasicDefinitions" class="section"></div>
 
-        <div id="Weights"></div>
+            <div id="Undirected" class="section"></div>
 
-        <div id="Basic Usages"></div>
+            <div id="Directed" class="section"></div>
 
-        <div id="Traversals"></div>
+            <div id="Weights " class="section"></div>
 
-        <div id="TImeComplexity"></div>
+            <div id="Basic Usages" class="section"></div>
+
+            <div id="Traversals"  class="section">
+                <h2 style="align-self: flex-start;"> Traversals </h1> <br>
+                <p class="paragraph">
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    Visiting each vertex in a graph is the basis of many graph algorithms.
+                    Such algorithms are called traversals. 
+                 
+                    BFS (Breadth First Search) and DFS (Depth First Search) are the most popular and usually learned together.
+                    Upon initial inspection you'll notice both are similar in implementation and technically accomplish the same thing. (Visit every vertex in a graph)
+    
+                    The difference lies in the order that the algorithm considers the vertices. 
+                    <br><br> &nbsp;&nbsp;&nbsp;&nbsp;
+                    BFS selects vertices closer to the source first. 
+                    This is useful for applications where the target has a higher chance of being closer to the source.
+    
+                </p>
+
+                <br>
+
+                <video id="bfsVideo" class="InstructionVideo" controls muted playsinline>
+                    <source src="resources/Graphs/BFS.mp4" type="video/mp4" />
+                </video>
+
+                <br>
+
+                <p class="paragraph">
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    DFS moves away from the source by selecting descendants before siblings. 
+                    If the target tends to be far away for the source BFS will be inefficient because it will spend time checking closer vertices first.
+                    
+                </p>
+                <br>
+                <video id="lcsVideo" class="InstructionVideo" controls muted playsinline>
+                    <source src="resources/Graphs/DFS.mp4" type="video/mp4" />
+                </video>
+                <br>
+
+
+            </div>
+
+            <div id="TimeComplexity" class="section"></div>
+        </div>
+
     </div>
 </body>
 

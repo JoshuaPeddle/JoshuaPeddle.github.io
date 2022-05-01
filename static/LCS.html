@@ -23,63 +23,71 @@
                 <br>
                 <br>
             </div>
-            <p class="paragraph">
-                &nbsp;&nbsp;&nbsp;&nbsp;What is the Longest Common Subsequence problem? Wikipedia defines "The Longest
-                common subsequence problem is
-                the problem of finding the longest subsequence common to all subsequence in a set of sequences
-                (often justtwo sequences)."
-                Focusing on the two sequence problem, consider the following example. Given two strings, x = GATCATC and
-                y = CTACGTC, the longest common subsequence would be ACTC. This example isn't too hard to solve by
-                inspection but with longer strings solving through inspection is not feasible.
-            </p>
+            <div id="intro" class="section">
+                <p class="paragraph">
+                    &nbsp;&nbsp;&nbsp;&nbsp;What is the Longest Common Subsequence problem? Wikipedia defines "The
+                    Longest
+                    common subsequence problem is
+                    the problem of finding the longest subsequence common to all subsequence in a set of sequences
+                    (often justtwo sequences)."
+                    Focusing on the two sequence problem, consider the following example. Given two strings, x = GATCATC
+                    and
+                    y = CTACGTC, the longest common subsequence would be ACTC. This example isn't too hard to solve by
+                    inspection but with longer strings solving through inspection is not feasible.
+                </p>
+                <br>
+                <p class="paragraph">
+                    &nbsp;&nbsp;&nbsp;&nbsp;One potential way to solve these subset of problems is to use dynamic
+                    programming. I'm planning on writing specifically about
+                    dynamic programming, for now check out Wikipedia's entry about it
+                    <a href="https://en.wikipedia.org/wiki/Dynamic_programming"> Here. </a>
+                </p>
+                <br>
+                <p class="paragraph"> &nbsp;&nbsp;&nbsp;&nbsp;Start with an empty array as shown below, this will hold
+                    intermediate values
+                    while calculating the
+                    solution.
+                </p>
+            </div>
             <br>
-            <p class="paragraph">
-                &nbsp;&nbsp;&nbsp;&nbsp;One potential way to solve these subset of problems is to use dynamic
-                programming. I'm planning on writing specifically about
-                dynamic programming, for now check out Wikipedia's entry about it
-                <a href="https://en.wikipedia.org/wiki/Dynamic_programming"> Here. </a>
-            </p>
-            <br>
-            <p class="paragraph"> &nbsp;&nbsp;&nbsp;&nbsp;Start with an empty array as shown below, this will hold intermediate values
-                while calculating the
-                solution.
-            </p>
-            
-            <br>
+            <div id="solution" class="section">
+                <img src="resources/emptyArray.png" alt="Empty Array" class="InstructionImg">
+                <br>
 
-            <img src="resources/emptyArray.png"  alt="Empty Array" class="InstructionImg">
-            <br>
+                <p class="paragraph"> &nbsp;&nbsp;&nbsp;&nbsp;A(i,j) contains the longest subsequence including the
+                    first i
+                    characters of
+                    string x and the first j characters of string y.
+                </p>
+                <br>
+                <p class="paragraph"> &nbsp;&nbsp;&nbsp;&nbsp;Initialize the array as such. We are trying to maximize
+                    the
+                    number in our array
+                    so we initialize the
+                    array with 0's.
+                </p>
+                <br>
 
-            <p class="paragraph"> &nbsp;&nbsp;&nbsp;&nbsp;A(i,j) contains the longest subsequence including the first i characters of
-                string x and the first j characters of string y.
-            </p>
-            <br>
-            <p class="paragraph"> &nbsp;&nbsp;&nbsp;&nbsp;Initialize the array as such. We are trying to maximize the number in our array
-                so we initialize the
-                array with 0's.
-            </p>
-            <br>
-          
 
-            $$\forall j,1\le j \le |x| \quad A(0,j)=0$$
+                $$\forall j,1\le j \le |x| \quad A(0,j)=0$$
 
-            $$\forall i,2\le i \le |y| \quad A(i,0)=0$$
+                $$\forall i,2\le i \le |y| \quad A(i,0)=0$$
 
-            <img src="resources/InitializedArray.png"  alt="Initialized Array" class="InstructionImg">
+                <img src="resources/InitializedArray.png" alt="Initialized Array" class="InstructionImg">
 
-            $$ A(i,j) = \Bigg\{ {\substack{ 1 + A(i-1,j-1) \quad \quad if: \ x_i=y_j \\ \\ max( A(i-1,j), A(i,j-1))
-            \quad else }} $$
+                $$ A(i,j) = \Bigg\{ {\substack{ 1 + A(i-1,j-1) \quad \quad if: \ x_i=y_j \\ \\ max( A(i-1,j), A(i,j-1))
+                \quad else }} $$
 
-            <video id="lcsVideo"   class="InstructionVideo" controls muted playsinline>
-                <source src="resources/FullAnim.mp4" type="video/mp4" />
-            </video>
-            <br>
+                <video id="lcsVideo" class="InstructionVideo" controls muted playsinline>
+                    <source src="resources/FullAnim.mp4" type="video/mp4" />
+                </video>
+                <br>
 
-            <p> &nbsp;&nbsp;&nbsp;&nbsp;
-            </p>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;
+                </p>
 
-            <br>
-            
+                <br>
+            </div>
         </div>
     </div>
 </body>

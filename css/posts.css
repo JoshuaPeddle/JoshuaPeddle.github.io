@@ -7,11 +7,19 @@
 /* Devices larger than 600 horizontal pixels*/
 .InstructionImg,
 .InstructionVideo {
-
+    
     width: "640px";
     height: "480px";
-    max-width: 60%;
+    max-width: 100%;
     
+}
+
+/* Sub texts posts inside content*/
+.section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 70%;
 }
 
 /* Devices smaller than 600 horizontal pixels*/
@@ -22,6 +30,11 @@
 
         width: "640px";
         height: "480px";
+        max-width: 100%;
+    }
+
+    .section{
+  
         max-width: 100%;
     }
 }
