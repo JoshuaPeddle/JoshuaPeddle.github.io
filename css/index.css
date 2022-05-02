@@ -20,19 +20,18 @@
 #Title{
 
     padding-bottom: 10vh;
-    color:rgb(207, 208, 218);
+    color:white;
 }
 
 
 #Content {
     height: 75vh;
-    flex-grow: 4;
+    flex-grow: 3;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin: 2%;
-    width : 100%;
 }
 /* Cool dark blue text blurbs */
 #text{
@@ -51,9 +50,6 @@
     #text{
 
         max-width: 90%;
-    }
-    #Title{
-       
     }
     
 }
@@ -84,7 +80,7 @@ a {
 .background--custom {
     background: linear-gradient(45deg,  #000303a8 ,#000e34ce);
     background-size: 200% 200%;
-    animation: gradient 40s alternate infinite;
+    animation: gradient 120s alternate infinite;
     position: sticky;
     overflow-y: scroll;
     top: 0;
