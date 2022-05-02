@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Graphs</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An introduction to graph theory">
     <link rel="stylesheet" type="text/css" href="../css/posts.css" />
-    <script type="text/javascript" id="MathJax-script" async
+    <!-- <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
+        </script>-->
 </head>
 
 <body>
@@ -23,26 +23,26 @@
             </div>
 
             <!-- $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$-->
-            <div id="Overview" class="section"></div>
+            <div id="Overview" class="section">
 
-            <br>
-            <p class="paragraph">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            <h2 class="subtitle"> Introduction </h2> <br>
-            Outside of computer science, our first though when encountering the word graph is usually "bar graph" or
-            "line graph".
-            Another graph and a useful tool for representing data is a structure made up of vertices and edges
-            forming connections between the vertices.
-            Consider an algorithm that outputs an efficient route for digging underground tunnels between buildings.
-            For this example, the buildings would be vertices and the tunnels are the edges.
-            </p>
-            <br>
+                <br>
+                <h2 class="subtitle"> Introduction </h2> <br>
+                <p class="paragraph">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+
+                    Outside of computer science, our first though when encountering the word graph is usually "bar
+                    graph" or
+                    "line graph".
+                    Another graph and a useful tool for representing data is a structure made up of vertices and edges
+                    forming connections between the vertices.
+                    Consider an algorithm that outputs an efficient route for digging underground tunnels between
+                    buildings.
+                    For this example, the buildings would be vertices and the tunnels are the edges.
+                </p>
+                <br>
+            </div>
             <div id="BasicDefinitions" class="section"></div>
-            <p class="paragraph">
-                &nbsp;&nbsp;&nbsp;&nbsp;
 
-            </p>
-            <br>
 
             <div id="Undirected" class="section"></div>
 
@@ -73,7 +73,7 @@
                 </p>
 
                 <br>
-
+                <h3>BFS</h3> <br>
                 <video id="bfsVideo" class="InstructionVideo" controls muted playsinline>
                     <source src="resources/Graphs/BFS.mp4" type="video/mp4" />
                 </video>
@@ -88,6 +88,7 @@
 
                 </p>
                 <br>
+                <h3>DFS</h3> <br>
                 <video id="lcsVideo" class="InstructionVideo" controls muted playsinline>
                     <source src="resources/Graphs/DFS.mp4" type="video/mp4" />
                 </video>
@@ -103,6 +104,7 @@
             <div id="Strongly Connected Components" class="section">
                 <h2 class="subtitle"> Strongly Connected Components </h2> <br>
                 <p class="paragraph">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     Wikipedia defines strongly connected components as "A graph is said to be strongly connected if
                     every vertex is reachable from every other vertex"
                     In a directed graph, it is possible to move from node A to node B down a directed edge and have no
