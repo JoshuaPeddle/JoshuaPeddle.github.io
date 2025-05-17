@@ -16,10 +16,9 @@ on:
 
 
 jobs:
-  steps:   
-    build-and-deploy:
-    name: Build and Deploy Website
-    runs-on: ubuntu-latest
+  build-and-deploy:    
+  - name: Build and Deploy Website
+    runs-on: ubuntu-latest  
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
