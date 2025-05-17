@@ -1,0 +1,107 @@
+@page "/posts"
+@inject HttpClient Http
+
+<PageTitle>Blog Posts</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Blog Posts</MudText>
+
+@if (posts == null || posts.Count == 0)
+{
+    <MudText>No blog posts available.</MudText>
+}
+else
+{
+
+    <div class="posts-container">
+        @foreach (var post in posts)
+        {
+            <MudPaper Class="post-card" Elevation="2">
+                <MudText Typo="Typo.h5">@post.Title</MudText>
+                <MudText Variant="Subtitle2">@post.Date.ToString("MMMM dd, yyyy")</MudText>
+                <MudText Class="mt-2">@GetSnippet(post.Content)</MudText>
+                @if (post.Tags != null && post.Tags.Any())
+                {
+                    <div class="post-tags mt-1">
+                        @foreach (var tag in post.Tags)
+                        {
+                            <span class="tag">@tag</span>
+                        }
+                    </div>
+                }
+            </MudPaper>
+        }
+    </div>
+}
+
+@code {
+    private List<Post> posts = new List<Post>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var index = await Http.GetFromJsonAsync<Index>("posts/index.json");
+        posts = index?.Posts ?? new List<Post>();
+        StateHasChanged();
+    }
+
+    private string GetSnippet(string content)
+    {
+        if (string.IsNullOrEmpty(content))
+            return "";
+        const int maxLength = 150;
+        return content.Length <= maxLength ? content : content.Substring(0, maxLength) + "...";
+    }
+
+    public class Post
+    {
+        public string FileName { get; set; }
+        public string Title { get; set; }
+        public DateTime Date { get; set; }
+        public List<string> Tags { get; set; }
+        public string Content { get; set; }
+    }
+
+    public class Index
+    {
+        public List<Post> Posts { get; set; }
+    }
+}
+
+<style>
+    .posts-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .post-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        flex: 1 1 calc(33% - 1rem);
+        box-sizing: border-box;
+    }
+
+    .post-tags {
+        margin-top: 0.5rem;
+    }
+
+    .tag {
+        background-color: #26b050;
+        color: white;
+        padding: 0.2rem 0.5rem;
+        border-radius: 0.3rem;
+        font-size: 0.8rem;
+        margin-right: 0.3rem;
+    }
+
+    @@media (max-width: 768px) {
+        .post-card {
+            flex: 1 1 calc(50% - 1rem);
+        }
+    }
+
+    @@media (max-width: 480px) {
+        .post-card {
+            flex: 1 1 100%;
+        }
+    }
+</style>

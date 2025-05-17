@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Blog.Wasm.Builder": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
