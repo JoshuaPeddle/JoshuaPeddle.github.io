@@ -43,36 +43,61 @@
 
 .loading-progress {
     position: relative;
-    display: block;
+    display: block;     
     width: 8rem;
     height: 8rem;
     margin: 20vh auto 1rem auto;
+    filter: drop-shadow(0 0 0.5rem rgba(27, 110, 194, 0.3));
+    animation: spin 10s linear infinite;
 }
 
-    .loading-progress circle {
-        fill: none;
-        stroke: #e0e0e0;
-        stroke-width: 0.6rem;
-        transform-origin: 50% 50%;
-        transform: rotate(-90deg);
-    }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
-        .loading-progress circle:last-child {
-            stroke: #1b6ec2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
-        }
+.loading-progress circle {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 0.6rem;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+}
+
+.loading-progress circle:last-child {
+    stroke: #1b6ec2;  /* Changed from url(#gradient) to solid color */
+    stroke-linecap: round;
+    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    transition: stroke-dasharray 0.05s ease-in-out;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { stroke-width: 0.6rem; }
+    50% { stroke-width: 0.8rem; }
+    100% { stroke-width: 0.6rem; }
+}
 
 .loading-progress-text {
     position: absolute;
     text-align: center;
     font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+    animation: fade 1.5s infinite alternate;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.5px;
 }
 
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
-    }
+@keyframes fade {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+.loading-progress-text:after {
+    content: var(--blazor-load-percentage-text, "Loading");
+}
 
 code {
     color: #c02d76;
