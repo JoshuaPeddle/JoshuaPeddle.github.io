@@ -31,10 +31,10 @@ jobs:
       run: dotnet workload install wasm-tools
 
     - name: Restore dependencies
-      run: dotnet restore Blog.Wasm.Client/Blog.Wasm.Client.csproj
+      run: dotnet restore
 
     - name: Build project
-      run: dotnet build Blog.Wasm.Client/Blog.Wasm.Client.csproj --configuration Release --no-restore
+      run: dotnet build 
 
     - name: Publish project
       run: dotnet publish Blog.Wasm.Client/Blog.Wasm.Client.csproj --configuration Release -o /home/runner/work/output
