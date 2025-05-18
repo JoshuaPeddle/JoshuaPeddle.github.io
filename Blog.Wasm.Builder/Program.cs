@@ -1,6 +1,6 @@
 ﻿// Accepts an argument to specify the path to the project folder.
 
-// The project folder should contain a wwwroot/posts folder with .md files.
+// The project folder should contain a wwwroot/_posts folder with .md files.
 
 // This program creates an index.json file in the wwwroot/posts folder, which contains a list of all the .md files in the folder.
 
@@ -15,7 +15,7 @@ using System.Xml.Linq;
 
 
 var projectFolder = args.Length > 0 ? args[0] : Directory.GetCurrentDirectory();
-var postsFolder = Path.Combine(projectFolder, "wwwroot", "posts");
+var postsFolder = Path.Combine(projectFolder, "wwwroot", "_posts");
 var indexFile = Path.Combine(postsFolder, "index.json");
 
 var posts = new List<Post>();

@@ -38,7 +38,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        var index = await Http.GetFromJsonAsync<Index>("posts/index.json");
+        var index = await Http.GetFromJsonAsync<Index>("_posts/index.json");
         posts = index?.Posts ?? new List<Post>();
         StateHasChanged();
     }

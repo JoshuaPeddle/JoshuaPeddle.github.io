@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="wwwroot\posts\**">
+    <EmbeddedResource Include="wwwroot\_posts\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\posts\second-post.md" />
+    <Content Remove="wwwroot\_posts\second-post.md" />
   </ItemGroup>
 
   <ItemGroup>
