@@ -39,6 +39,9 @@ jobs:
     - name: Publish project
       run: dotnet publish Blog.Wasm.Client/Blog.Wasm.Client.csproj --configuration Release -o /home/runner/work/output
 
+    - name: Create 404.html # Copy index.html to 404.html. This makes SPA routing work on GitHub Pages.
+      run: cp /home/runner/work/output/wwwroot/index.html /home/runner/work/output/wwwroot/404.html
+
     - name: Release to GitHub Pages
       if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || github.event.inputs.releasePage == 'Y'
       uses: peaceiris/actions-gh-pages@v3
