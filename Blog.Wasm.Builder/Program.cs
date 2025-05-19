@@ -14,14 +14,14 @@ foreach (var postFile in postFiles)
 {
     var fileContent = File.ReadAllText(postFile);
     var frontmatter = fileContent.GetFrontMatter<BlogFrontMatter>();
-    
+
     var post = new Post
     {
         FileName = Path.GetFileName(postFile),
         Title = frontmatter.Title,
         Date = frontmatter.Date,
         Tags = frontmatter.Tags,
-        Content = fileContent
+        Content = String.Join("",fileContent.Split(new[] { "---" }, StringSplitOptions.RemoveEmptyEntries)[1..]).Trim()
 
     };
     posts.Add(post);
