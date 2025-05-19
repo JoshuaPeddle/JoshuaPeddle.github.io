@@ -38,12 +38,12 @@ else
 }
 
 @code {
-    private List<Client.Post> posts = new List<Client.Post>();
+    private List<Core.Post> posts = new List<Core.Post>();
 
     protected override async Task OnInitializedAsync()
     {
-        var index = await Http.GetFromJsonAsync<Client.Index>("_posts/index.json");
-        posts = index?.Posts ?? new List<Client.Post>();
+        var index = await Http.GetFromJsonAsync<Core.Index>("_posts/index.json");
+        posts = index?.Posts ?? new List<Core.Post>();
         StateHasChanged();
     }
 

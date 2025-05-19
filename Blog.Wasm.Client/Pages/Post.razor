@@ -13,11 +13,11 @@
 @code {
     [Parameter]
     public string Filename { get; set; }
-    private Client.Post post;
+    private Core.Post post;
     protected override async Task OnInitializedAsync()
     {
-        var index = await Http.GetFromJsonAsync<Client.Index>("_posts/index.json");
-        var posts = index?.Posts ?? new List<Client.Post>();
+        var index = await Http.GetFromJsonAsync<Core.Index>("_posts/index.json");
+        var posts = index?.Posts ?? new List<Core.Post>();
         var filenameWithExtension = Filename + ".md";
 
         post = posts.FirstOrDefault(p => p.FileName == filenameWithExtension);

@@ -1,4 +1,10 @@
-﻿Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae mi molestie, venenatis arcu nec, bibendum erat. In scelerisque mauris sed diam imperdiet pellentesque. Suspendisse imperdiet mauris ac justo fermentum aliquam. Donec luctus magna vitae nisi congue congue. Pellentesque non sollicitudin felis, eu condimentum nisi. Nullam eu cursus dui. Vestibulum gravida finibus ex in feugiat. Maecenas interdum iaculis purus. Pellentesque porttitor tellus a magna semper consequat. Sed ac dolor vel augue commodo varius. Cras nulla orci, vestibulum in risus vel, accumsan tincidunt nulla. Ut fringilla pretium mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus feugiat mattis dui a tincidunt. Cras ac viverra ante.
+﻿---
+title: "Second Post"
+date: 2024-10-01 12:00:00
+tags: [test, hello]
+---
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae mi molestie, venenatis arcu nec, bibendum erat. In scelerisque mauris sed diam imperdiet pellentesque. Suspendisse imperdiet mauris ac justo fermentum aliquam. Donec luctus magna vitae nisi congue congue. Pellentesque non sollicitudin felis, eu condimentum nisi. Nullam eu cursus dui. Vestibulum gravida finibus ex in feugiat. Maecenas interdum iaculis purus. Pellentesque porttitor tellus a magna semper consequat. Sed ac dolor vel augue commodo varius. Cras nulla orci, vestibulum in risus vel, accumsan tincidunt nulla. Ut fringilla pretium mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus feugiat mattis dui a tincidunt. Cras ac viverra ante.
 
 Pellentesque sit amet lectus est. Praesent urna ex, sagittis non ullamcorper sit amet, gravida mattis erat. Aliquam vestibulum ullamcorper arcu. Etiam efficitur vel dui quis volutpat. Aliquam erat volutpat. Pellentesque sem est, maximus eu enim at, posuere bibendum tellus. Curabitur vel lacinia elit. Nullam est ex, imperdiet eu iaculis hendrerit, finibus eu sapien. Aenean quis tincidunt lacus.
 

@@ -10,6 +10,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1-Preview.1" />
+    <PackageReference Include="YamlDotNet" Version="16.3.0" />
+	<PackageReference Include="Markdig" Version="0.41.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blog.Wasm.Core\Blog.Wasm.Core.csproj" />
   </ItemGroup>
 
 </Project>

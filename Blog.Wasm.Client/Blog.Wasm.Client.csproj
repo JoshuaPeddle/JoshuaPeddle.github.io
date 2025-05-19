@@ -20,6 +20,11 @@
     <PackageReference Include="MudBlazor" Version="8.*" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blog.Wasm.Core\Blog.Wasm.Core.csproj" />
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
 	<Exec Command="dotnet run --project  ../Blog.Wasm.Builder --no-build" />
   </Target>
