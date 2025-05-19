@@ -1,0 +1,31 @@
+﻿@page "/posts/{filename}"
+@using Markdig
+@inject HttpClient Http
+
+<h2>@post?.Title</h2>
+
+<MudText Typo="Typo.h3" GutterBottom="true">@post?.Title</MudText>
+
+<MudText Variant="Subtitle2">@post?.Date.ToString("MMMM dd, yyyy")</MudText>
+
+@((MarkupString)post?.Content)
+
+@code {
+    [Parameter]
+    public string Filename { get; set; }
+    private Client.Post post;
+    protected override async Task OnInitializedAsync()
+    {
+        var index = await Http.GetFromJsonAsync<Client.Index>("_posts/index.json");
+        var posts = index?.Posts ?? new List<Client.Post>();
+        var filenameWithExtension = Filename + ".md";
+
+        post = posts.FirstOrDefault(p => p.FileName == filenameWithExtension);
+        if (post != null)
+        {
+            var mdContent = await Http.GetStringAsync($"_posts/{filenameWithExtension}");
+            post.Content = Markdown.ToHtml(mdContent);
+        }
+    }
+
+}

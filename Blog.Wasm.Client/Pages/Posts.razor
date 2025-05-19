@@ -15,31 +15,35 @@ else
     <div class="posts-container">
         @foreach (var post in posts)
         {
-            <MudPaper Class="post-card" Elevation="2">
-                <MudText Typo="Typo.h5">@post.Title</MudText>
-                <MudText Variant="Subtitle2">@post.Date.ToString("MMMM dd, yyyy")</MudText>
-                <MudText Class="mt-2">@GetSnippet(post.Content)</MudText>
-                @if (post.Tags != null && post.Tags.Any())
-                {
-                    <div class="post-tags mt-1">
-                        @foreach (var tag in post.Tags)
-                        {
-                            <span class="tag">@tag</span>
-                        }
-                    </div>
-                }
-            </MudPaper>
+            
+                <MudPaper Class="post-card" Elevation="2">
+                    <a href="/posts/@(post.FileName.Replace(".md", ""))" style="text-decoration:none; color:inherit;">
+                    <MudText Typo="Typo.h5">@post.Title</MudText>
+                    <MudText Variant="Subtitle2">@post.Date.ToString("MMMM dd, yyyy")</MudText>
+                    <MudText Class="mt-2">@GetSnippet(post.Content)</MudText>
+                    @if (post.Tags != null && post.Tags.Any())
+                    {
+                        <div class="post-tags mt-1">
+                            @foreach (var tag in post.Tags)
+                            {
+                                <span class="tag">@tag</span>
+                            }
+                        </div>
+                    }
+                </a>
+                </MudPaper>
+            
         }
     </div>
 }
 
 @code {
-    private List<Post> posts = new List<Post>();
+    private List<Client.Post> posts = new List<Client.Post>();
 
     protected override async Task OnInitializedAsync()
     {
-        var index = await Http.GetFromJsonAsync<Index>("_posts/index.json");
-        posts = index?.Posts ?? new List<Post>();
+        var index = await Http.GetFromJsonAsync<Client.Index>("_posts/index.json");
+        posts = index?.Posts ?? new List<Client.Post>();
         StateHasChanged();
     }
 
@@ -49,20 +53,6 @@ else
             return "";
         const int maxLength = 150;
         return content.Length <= maxLength ? content : content.Substring(0, maxLength) + "...";
-    }
-
-    public class Post
-    {
-        public string FileName { get; set; }
-        public string Title { get; set; }
-        public DateTime Date { get; set; }
-        public List<string> Tags { get; set; }
-        public string Content { get; set; }
-    }
-
-    public class Index
-    {
-        public List<Post> Posts { get; set; }
     }
 }
 
