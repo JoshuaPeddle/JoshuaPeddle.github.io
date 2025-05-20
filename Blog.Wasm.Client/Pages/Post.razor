@@ -1,6 +1,7 @@
 ﻿@page "/posts/{filename}"
 @using Markdig
 @inject HttpClient Http
+@inject MarkdownPipeline Pipeline
 
 <MudText Typo="Typo.h3" GutterBottom="true">@post?.Title</MudText>
 
@@ -13,10 +14,6 @@
     public string Filename { get; set; }
     private Core.Post post;
 
-    private MarkdownPipeline pipeline = new MarkdownPipelineBuilder()
-        .UseAdvancedExtensions()
-        .Build();
-
     protected override async Task OnInitializedAsync()
     {
         var index = await Http.GetFromJsonAsync<Core.Index>("_posts/index.json");
@@ -27,7 +24,7 @@
         if (post != null)
         {
             var mdContent = post.Content;
-            post.Content = Markdown.ToHtml(mdContent);
+            post.Content = Markdown.ToHtml(mdContent, Pipeline);
         }
     }
 
