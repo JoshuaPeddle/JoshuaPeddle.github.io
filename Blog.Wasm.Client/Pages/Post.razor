@@ -2,8 +2,6 @@
 @using Markdig
 @inject HttpClient Http
 
-<h2>@post?.Title</h2>
-
 <MudText Typo="Typo.h3" GutterBottom="true">@post?.Title</MudText>
 
 <MudText Variant="Subtitle2">@post?.Date.ToString("MMMM dd, yyyy")</MudText>
@@ -14,6 +12,11 @@
     [Parameter]
     public string Filename { get; set; }
     private Core.Post post;
+
+    private MarkdownPipeline pipeline = new MarkdownPipelineBuilder()
+        .UseAdvancedExtensions()
+        .Build();
+
     protected override async Task OnInitializedAsync()
     {
         var index = await Http.GetFromJsonAsync<Core.Index>("_posts/index.json");
