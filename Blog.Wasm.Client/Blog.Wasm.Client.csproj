@@ -12,6 +12,10 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\facts.txt" />
+  </ItemGroup>
+
 
   <ItemGroup>
 	<PackageReference Include="Markdig" Version="0.41.1" />

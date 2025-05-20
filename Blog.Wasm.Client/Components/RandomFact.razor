@@ -1,0 +1,13 @@
+﻿@inject ISnackbar Snackbar
+@inject FactService FactService
+
+@code {
+    [Parameter]
+    public int Delay { get; set; } = 2000;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(Delay);
+        Snackbar.Add(await FactService.GetRandomFact(), Severity.Normal);
+    }
+}
