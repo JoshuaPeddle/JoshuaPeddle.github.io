@@ -12,25 +12,22 @@ var postFiles = Directory.GetFiles(postsFolder, "*.md", SearchOption.TopDirector
 
 foreach (var postFile in postFiles)
 {
-    var fileContent = File.ReadAllText(postFile);
+    var fileContent = File.ReadAllText(postFile) ?? "";
     var frontmatter = fileContent.GetFrontMatter<BlogFrontMatter>();
 
-    var post = new Post
-    {
-        FileName = Path.GetFileName(postFile),
-        Title = frontmatter.Title,
-        Date = frontmatter.Date,
-        Tags = frontmatter.Tags,
-        Content = String.Join("",fileContent.Split(new[] { "---" }, StringSplitOptions.RemoveEmptyEntries)[1..]).Trim()
-
-    };
-    posts.Add(post);
+    posts.Add(new Post(
+        Path.GetFileName(postFile),
+        frontmatter.Title ?? "",
+        frontmatter.Date,
+        frontmatter.Tags,
+        String.Join("", fileContent.Split(new[] { "---" }, StringSplitOptions.RemoveEmptyEntries)[1..]).Trim()
+    ));
 }
 
 var index = new Blog.Wasm.Core.Index
-{
-    Posts = posts.OrderByDescending(p => p.Date).ToList()
-};
+(
+    posts.OrderByDescending(p => p.Date).ToList()
+);
 
 var options = new JsonSerializerOptions
 {

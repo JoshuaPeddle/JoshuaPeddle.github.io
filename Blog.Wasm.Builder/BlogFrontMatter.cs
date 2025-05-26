@@ -11,9 +11,9 @@ using YamlDotNet.Serialization;
 public class BlogFrontMatter
 {
     [YamlMember(Alias = "title")]
-    public string Title { get; set; }
+    public string? Title { get; set; }
     [YamlMember(Alias = "date")]
     public DateTime Date { get; set; }
     [YamlMember(Alias = "tags")]
-    public List<string> Tags { get; set; }
+    public List<string> Tags { get; set; } = [];
 }

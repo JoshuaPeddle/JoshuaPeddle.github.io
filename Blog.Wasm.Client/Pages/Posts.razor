@@ -19,7 +19,7 @@ else
                 <MudPaper Class="post-card" Elevation="2">
                     <a href="/posts/@(post.FileName.Replace(".md", ""))" style="text-decoration:none; color:inherit;">
                     <MudText Typo="Typo.h5">@post.Title</MudText>
-                    <MudText Variant="Subtitle2">@post.Date.ToString("MMMM dd, yyyy")</MudText>
+                    <MudText Typo="Typo.subtitle2">@post.Date.ToString("MMMM dd, yyyy")</MudText>
                     <MudText Class="mt-2">@GetSnippet(post.Content)</MudText>
                     @if (post.Tags != null && post.Tags.Any())
                     {

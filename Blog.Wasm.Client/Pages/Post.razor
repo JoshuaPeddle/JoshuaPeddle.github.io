@@ -5,14 +5,16 @@
 
 <MudText Typo="Typo.h3" GutterBottom="true">@post?.Title</MudText>
 
-<MudText Variant="Subtitle2">@post?.Date.ToString("MMMM dd, yyyy")</MudText>
+<MudText Typo="Typo.subtitle2">@post?.Date.ToString("MMMM dd, yyyy")</MudText>
 
-@((MarkupString)post?.Content)
+@if(post != null){
+    @((MarkupString)post.Content)
+}
 
 @code {
     [Parameter]
-    public string Filename { get; set; }
-    private Core.Post post;
+    public string? Filename { get; set; }
+    Core.Post? post = null;
 
     protected override async Task OnInitializedAsync()
     {
@@ -20,7 +22,7 @@
         var posts = index?.Posts ?? new List<Core.Post>();
         var filenameWithExtension = Filename + ".md";
 
-        post = posts.FirstOrDefault(p => p.FileName == filenameWithExtension);
+        post = posts?.FirstOrDefault(p => p.FileName == filenameWithExtension);
         if (post != null)
         {
             var mdContent = post.Content;
