@@ -11,39 +11,76 @@
 }
 else
 {
+    <MudPaper Class="py-2 px-4 mb-3">
+        <MudText Typo="Typo.subtitle1" Class="mb-2">Filter by Tags</MudText>        
+        <div class="d-flex flex-wrap gap-2 align-center mb-2">
+            @foreach (var tag in allTags)
+            {
+                <MudChip 
+                    T="string"
+                    Color="@(selectedTags.Contains(tag) ? Color.Primary : Color.Default)" 
+                    OnClick="() => ToggleTagFilter(tag)">
+                    @tag
+                </MudChip>
+            }
+        </div>
+        @if (selectedTags.Any())
+        {
+            <div class="d-flex flex-wrap gap-2 align-center mt-3">
+                <MudText Typo="Typo.body2">Active filters:</MudText>
+                <MudChip T="String" Color="Color.Error" OnClick="ClearFilters" Size="Size.Small">
+                    Clear All
+                </MudChip>
+            </div>
+        }
+    </MudPaper>
 
     <div class="posts-container">
-        @foreach (var post in posts)
+        @foreach (var post in filteredPosts)
         {
-            
-                <MudPaper Class="post-card" Elevation="2">
-                    <a href="/posts/@(post.FileName.Replace(".md", ""))" style="text-decoration:none; color:inherit;">
-                    <MudText Typo="Typo.h5">@post.Title</MudText>
-                    <MudText Typo="Typo.subtitle2">@post.Date.ToString("MMMM dd, yyyy")</MudText>
-                    <MudText Class="mt-2">@GetSnippet(post.Content)</MudText>
-                    @if (post.Tags != null && post.Tags.Any())
-                    {
-                        <div class="post-tags mt-1">
-                            @foreach (var tag in post.Tags)
-                            {
-                                <span class="tag">@tag</span>
-                            }
-                        </div>
-                    }
+            <MudPaper Class="post-card" Elevation="2">
+                <a href="/posts/@(post.FileName.Replace(".md", ""))" style="text-decoration:none; color:inherit;">
+                <MudText Typo="Typo.h5">@post.Title</MudText>
+                <MudText Typo="Typo.subtitle2">@post.Date.ToString("MMMM dd, yyyy")</MudText>
+                <MudText Class="mt-2">@GetSnippet(post.Content)</MudText>
+                @if (post.Tags != null && post.Tags.Any())
+                {
+                    <div class="post-tags mt-1">
+                        @foreach (var tag in post.Tags)
+                        {
+                            <span class="tag">@tag</span>
+                        }
+                    </div>
+                }
                 </a>
-                </MudPaper>
-            
+            </MudPaper>
         }
     </div>
 }
 
 @code {
     private List<Core.Post> posts = new List<Core.Post>();
+    private List<Core.Post> filteredPosts => FilterPosts();
+    private HashSet<string> allTags = new HashSet<string>();
+    private HashSet<string> selectedTags = new HashSet<string>();
 
     protected override async Task OnInitializedAsync()
     {
         var index = await Http.GetFromJsonAsync<Core.Index>("_posts/index.json");
         posts = index?.Posts ?? new List<Core.Post>();
+        
+        // Extract all unique tags
+        foreach (var post in posts)
+        {
+            if (post.Tags != null)
+            {
+                foreach (var tag in post.Tags)
+                {
+                    allTags.Add(tag);
+                }
+            }
+        }
+        
         StateHasChanged();
     }
 
@@ -53,6 +90,30 @@ else
             return "";
         const int maxLength = 150;
         return content.Length <= maxLength ? content : content.Substring(0, maxLength) + "...";
+    }
+    
+    private void ToggleTagFilter(string tag)
+    {
+        if (selectedTags.Contains(tag))
+            selectedTags.Remove(tag);
+        else
+            selectedTags.Add(tag);
+    }
+    
+    private void ClearFilters()
+    {
+        selectedTags.Clear();
+    }
+    
+    private List<Core.Post> FilterPosts()
+    {
+        if (!selectedTags.Any())
+            return posts;
+            
+        return posts.Where(post => 
+            post.Tags != null && 
+            post.Tags.Any(tag => selectedTags.Contains(tag))
+        ).ToList();
     }
 }
 

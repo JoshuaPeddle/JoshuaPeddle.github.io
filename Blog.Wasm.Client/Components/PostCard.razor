@@ -1,0 +1,22 @@
+@using Blog.Wasm.Core
+
+<MudPaper Elevation="2" Class="pa-3 mb-3">
+    <MudLink Href="@($"/posts/{Post.FileName.Replace(".md", "")}")">
+        <MudText Typo="Typo.h6">@Post.Title</MudText>
+    </MudLink>
+    <MudText Typo="Typo.caption">@Post.Date.ToString("MMMM dd, yyyy")</MudText>
+    @if (Post.Tags != null && Post.Tags.Any())
+    {
+        <div class="mt-1">
+            @foreach (var tag in Post.Tags.Take(3))
+            {
+                <MudChip T="string" Size="Size.Small" Color="Color.Primary">@tag</MudChip>
+            }
+        </div>
+    }
+</MudPaper>
+
+@code {
+    [Parameter]
+    public Post Post { get; set; } = default!;
+}
