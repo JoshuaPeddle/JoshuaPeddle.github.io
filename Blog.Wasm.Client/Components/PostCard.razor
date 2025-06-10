@@ -1,16 +1,45 @@
 @using Blog.Wasm.Core
 
-<MudPaper Elevation="2" Class="pa-3 mb-3">
-    <MudLink Href="@($"/posts/{Post.FileName.Replace(".md", "")}")">
-        <MudText Typo="Typo.h6">@Post.Title</MudText>
+<MudPaper Elevation="2" Class="pa-4 mb-3 position-relative">
+    <MudLink Href="@($"/posts/{Post.FileName.Replace(".md", "")}")" Class="text-decoration-none">
+        <MudText Typo="Typo.h6" Class="mb-1">@Post.Title</MudText>
     </MudLink>
-    <MudText Typo="Typo.caption">@Post.Date.ToString("MMMM dd, yyyy")</MudText>
+    
+    <div class="d-flex flex-wrap align-center mb-2">
+        <MudText T="String" Typo="Typo.caption" Color="Color.Secondary">
+            @Post.Date.ToString("MMMM dd, yyyy")
+        </MudText>
+        
+        <MudChip 
+            T="String"
+            Size="Size.Small" 
+            Color="Color.Default" 
+            Class="ml-2 my-0 py-0 min-width-0" 
+            Style="height: 24px;">
+            <MudIcon Icon="@Icons.Material.Filled.Schedule" Size="Size.Small" Class="mr-1" />
+            <span>@CalculateReadingTime(Post.Content) min read</span>
+        </MudChip>
+    </div>
+    
     @if (Post.Tags != null && Post.Tags.Any())
     {
-        <div class="mt-1">
+        <div class="d-flex flex-wrap gap-1 mt-2">
             @foreach (var tag in Post.Tags.Take(3))
             {
-                <MudChip T="string" Size="Size.Small" Color="Color.Primary">@tag</MudChip>
+                <MudChip 
+                    T="String" 
+                    Size="Size.Small" 
+                    Color="Color.Primary" 
+                    Variant="Variant.Outlined" 
+                    Label="true">
+                    @tag
+                </MudChip>
+            }
+            @if (Post.Tags.Count > 3)
+            {
+                <MudChip T="String" Size="Size.Small" Color="Color.Default" Variant="Variant.Text">
+                    +@(Post.Tags.Count - 3)
+                </MudChip>
             }
         </div>
     }
@@ -19,4 +48,18 @@
 @code {
     [Parameter]
     public Post Post { get; set; } = default!;
+
+    private int CalculateReadingTime(string content)
+    {
+        if (string.IsNullOrEmpty(content))
+            return 1;
+
+        const int wordsPerMinute = 230;
+        
+        var wordCount = content.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries).Length;
+        
+        var minutes = Math.Max(1, (int)Math.Ceiling(wordCount / (double)wordsPerMinute));
+        
+        return minutes;
+    }
 }
