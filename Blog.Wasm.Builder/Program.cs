@@ -7,12 +7,9 @@ var postsFolder = Path.Combine(projectFolder, "wwwroot", "_posts");
 var indexFile = Path.Combine(postsFolder, "index.json");
 
 var posts = new List<Post>();
-var postFiles = Directory.GetFiles(postsFolder, "*.md", SearchOption.TopDirectoryOnly);
-
-
-foreach (var postFile in postFiles)
+foreach (var postFile in Directory.GetFiles(postsFolder, "*.md", SearchOption.TopDirectoryOnly))
 {
-    var fileContent = File.ReadAllText(postFile) ?? "";
+    var fileContent = File.ReadAllText(postFile);
     var frontmatter = fileContent.GetFrontMatter<BlogFrontMatter>();
 
     posts.Add(new Post(
